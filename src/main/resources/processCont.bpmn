@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/bpmn20" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_ABTe4GEnEe2A48SSUsxUFQ" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/bpmn20" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_f2_XAHqiEe2iP5g0qgt5Ww" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
   <bpmn2:itemDefinition id="_predioOutItem" structureRef="com.Predio"/>
   <bpmn2:itemDefinition id="_predioPersonaOutItem" structureRef="com.Predio_Persona"/>
   <bpmn2:itemDefinition id="_solicitanteOutItem" structureRef="com.Solicitante"/>
@@ -42,7 +42,8 @@
   <bpmn2:itemDefinition id="__3A037E6E-56DB-4114-8EB8-0D4BED30FB17_tramiteOutInputXItem" structureRef="com.Tramite"/>
   <bpmn2:itemDefinition id="__3A037E6E-56DB-4114-8EB8-0D4BED30FB17_conProOutOutputXItem" structureRef="Object"/>
   <bpmn2:itemDefinition id="__3A037E6E-56DB-4114-8EB8-0D4BED30FB17_A_ejecutorAsignadoOutputXItem" structureRef="String"/>
-  <bpmn2:process id="SistemaNacionalCatastral.processConservacion" drools:packageName="org.jbpm" drools:version="1.0" drools:adHoc="false" name="processConservacion" isExecutable="true" processType="Public">
+  <bpmn2:process id="SistemaNacionalCatastral.processCont" drools:packageName="org.jbpm" drools:version="2.0" drools:adHoc="false" name="processCont" isExecutable="true" processType="Public">
+    <bpmn2:documentation id="_f2_XAXqiEe2iP5g0qgt5Ww"><![CDATA[Este proceso, es el flujo controlador para los tramites y solicitudes, por medio de este proceso se instanciarán cada uno de los subprocesos para dar continuidad a los tramites de conservación]]></bpmn2:documentation>
     <bpmn2:extensionElements>
       <drools:global identifier="IDTramiteOut" type="String"/>
       <drools:global identifier="IDSolicitudOut" type="String"/>
@@ -62,45 +63,45 @@
     <bpmn2:property id="ejecEstado" itemSubjectRef="_ejecEstadoItem" name="ejecEstado"/>
     <bpmn2:property id="P_EjecutorAsignado" itemSubjectRef="_P_EjecutorAsignadoItem" name="P_EjecutorAsignado"/>
     <bpmn2:sequenceFlow id="_72440C98-CCA2-482D-9CA8-19896A35ECB2" sourceRef="_C46ACA96-6E6F-4D43-96D7-353E84EDE5A0" targetRef="_0D888791-A81C-443F-8B18-A8472DA42BBE">
-      <bpmn2:documentation id="_ABTe4WEnEe2A48SSUsxUFQ"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable desEjecOut = 2]]></bpmn2:documentation>
-      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_ABTe4mEnEe2A48SSUsxUFQ" language="http://www.java.com/java"><![CDATA[return KieFunctions.equalsTo(desEjecOut, "2");]]></bpmn2:conditionExpression>
-    </bpmn2:sequenceFlow>
-    <bpmn2:sequenceFlow id="_7EAC22AA-C06F-4ED9-B991-C2395FE8AA8A" sourceRef="_460D9ADB-67E9-4B66-8B7A-642CC8D55FF7" targetRef="_0D888791-A81C-443F-8B18-A8472DA42BBE">
-      <bpmn2:documentation id="_ABTe42EnEe2A48SSUsxUFQ"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable desValOut = 2]]></bpmn2:documentation>
-      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_ABTe5GEnEe2A48SSUsxUFQ" language="http://www.java.com/java"><![CDATA[return KieFunctions.equalsTo(desValOut, "2");]]></bpmn2:conditionExpression>
+      <bpmn2:documentation id="_f2_XAnqiEe2iP5g0qgt5Ww"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable desEjecOut = 2]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_f2_XA3qiEe2iP5g0qgt5Ww" language="http://www.java.com/java"><![CDATA[return KieFunctions.equalsTo(desEjecOut, "2");]]></bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="_FF0745DC-FF23-43BE-BCE4-B91282139EFA" sourceRef="_460D9ADB-67E9-4B66-8B7A-642CC8D55FF7" targetRef="_55BBBCD4-EDDD-4F11-8D08-0C6400CB6920">
-      <bpmn2:documentation id="_ABTe5WEnEe2A48SSUsxUFQ"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable desValOut = 1]]></bpmn2:documentation>
-      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_ABTe5mEnEe2A48SSUsxUFQ" language="http://www.java.com/java"><![CDATA[return KieFunctions.equalsTo(desValOut, "1");]]></bpmn2:conditionExpression>
+      <bpmn2:documentation id="_f2_XBHqiEe2iP5g0qgt5Ww"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable desValOut = 1]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_f2_XBXqiEe2iP5g0qgt5Ww" language="http://www.java.com/java"><![CDATA[return KieFunctions.equalsTo(desValOut, "1");]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_7EAC22AA-C06F-4ED9-B991-C2395FE8AA8A" sourceRef="_460D9ADB-67E9-4B66-8B7A-642CC8D55FF7" targetRef="_0D888791-A81C-443F-8B18-A8472DA42BBE">
+      <bpmn2:documentation id="_f2_XBnqiEe2iP5g0qgt5Ww"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable desValOut = 2]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_f2_XB3qiEe2iP5g0qgt5Ww" language="http://www.java.com/java"><![CDATA[return KieFunctions.equalsTo(desValOut, "2");]]></bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="_C2D83ADD-FDBA-4DBC-94CF-EA75A63876C6" sourceRef="_46CE77CC-B374-4BA6-9C0D-D702737A81AE" targetRef="_23341BB2-381E-47DC-B17B-6EF02E4BB293"/>
     <bpmn2:sequenceFlow id="_F6BA2C5E-0C10-4993-BD7C-A46AB2083138" sourceRef="_0D888791-A81C-443F-8B18-A8472DA42BBE" targetRef="_0EDC7FD4-E810-4076-B040-C064E7D399CC">
-      <bpmn2:documentation id="_ABTe52EnEe2A48SSUsxUFQ"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable conProOut = 1]]></bpmn2:documentation>
+      <bpmn2:documentation id="_f2_XCHqiEe2iP5g0qgt5Ww"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable conProOut = 1]]></bpmn2:documentation>
       <bpmn2:extensionElements>
         <drools:metaData name="isAutoConnection.target">
           <drools:metaValue><![CDATA[true]]></drools:metaValue>
         </drools:metaData>
       </bpmn2:extensionElements>
-      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_ABTe6GEnEe2A48SSUsxUFQ" language="http://www.java.com/java"><![CDATA[return KieFunctions.equalsTo(conProOut, "1");]]></bpmn2:conditionExpression>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_f2_-EHqiEe2iP5g0qgt5Ww" language="http://www.java.com/java"><![CDATA[return KieFunctions.equalsTo(conProOut, "1");]]></bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="_7AA9B212-A10D-402F-9E6F-42ABCC56AE3D" sourceRef="_1C050072-928A-4101-BC96-56BFFD942EB3" targetRef="_3A037E6E-56DB-4114-8EB8-0D4BED30FB17">
-      <bpmn2:documentation id="_ABTe6WEnEe2A48SSUsxUFQ"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable conProOut = 1]]></bpmn2:documentation>
-      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_ABTe6mEnEe2A48SSUsxUFQ" language="http://www.java.com/java"><![CDATA[return KieFunctions.equalsTo(conProOut, "1");]]></bpmn2:conditionExpression>
-    </bpmn2:sequenceFlow>
-    <bpmn2:sequenceFlow id="_1CCEABFC-B9A7-4224-A149-172DF05BC842" sourceRef="_0EDC7FD4-E810-4076-B040-C064E7D399CC" targetRef="_1C050072-928A-4101-BC96-56BFFD942EB3">
-      <bpmn2:documentation id="_ABTe62EnEe2A48SSUsxUFQ"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable conProOut = 1]]></bpmn2:documentation>
-      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_ABTe7GEnEe2A48SSUsxUFQ" language="http://www.java.com/java"><![CDATA[return KieFunctions.equalsTo(conProOut, "1");]]></bpmn2:conditionExpression>
+      <bpmn2:documentation id="_f2_-EXqiEe2iP5g0qgt5Ww"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable conProOut = 1]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_f2_-EnqiEe2iP5g0qgt5Ww" language="http://www.java.com/java"><![CDATA[return KieFunctions.equalsTo(conProOut, "1");]]></bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="_7B123E02-9FD0-4313-AAD7-D3386139B66C" sourceRef="_23341BB2-381E-47DC-B17B-6EF02E4BB293" targetRef="_1C050072-928A-4101-BC96-56BFFD942EB3"/>
-    <bpmn2:sequenceFlow id="_549605AD-6F2C-4235-BFCE-2EEF0EF39DF8" sourceRef="_3A037E6E-56DB-4114-8EB8-0D4BED30FB17" targetRef="_EBD31C77-7357-48C6-8DA6-D170C6C161A3"/>
-    <bpmn2:sequenceFlow id="_4A3CC993-FA13-460D-96F9-DAB16F1DA29D" sourceRef="_0EDC7FD4-E810-4076-B040-C064E7D399CC" targetRef="_EBD31C77-7357-48C6-8DA6-D170C6C161A3">
-      <bpmn2:documentation id="_ABTe7WEnEe2A48SSUsxUFQ"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable desValOut = 2]]></bpmn2:documentation>
-      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_ABTe7mEnEe2A48SSUsxUFQ" language="http://www.java.com/java"><![CDATA[return KieFunctions.equalsTo(desValOut, "2");]]></bpmn2:conditionExpression>
+    <bpmn2:sequenceFlow id="_1CCEABFC-B9A7-4224-A149-172DF05BC842" sourceRef="_0EDC7FD4-E810-4076-B040-C064E7D399CC" targetRef="_1C050072-928A-4101-BC96-56BFFD942EB3">
+      <bpmn2:documentation id="_f2_-E3qiEe2iP5g0qgt5Ww"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable conProOut = 1]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_f2_-FHqiEe2iP5g0qgt5Ww" language="http://www.java.com/java"><![CDATA[return KieFunctions.equalsTo(conProOut, "1");]]></bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_4A3CC993-FA13-460D-96F9-DAB16F1DA29D" sourceRef="_0EDC7FD4-E810-4076-B040-C064E7D399CC" targetRef="_EBD31C77-7357-48C6-8DA6-D170C6C161A3">
+      <bpmn2:documentation id="_f2_-FXqiEe2iP5g0qgt5Ww"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable desValOut = 2]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_f2_-FnqiEe2iP5g0qgt5Ww" language="http://www.java.com/java"><![CDATA[return KieFunctions.equalsTo(desValOut, "2");]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_549605AD-6F2C-4235-BFCE-2EEF0EF39DF8" sourceRef="_3A037E6E-56DB-4114-8EB8-0D4BED30FB17" targetRef="_EBD31C77-7357-48C6-8DA6-D170C6C161A3"/>
     <bpmn2:sequenceFlow id="_BC0F3ED2-F4AC-40A1-B41A-9C1BCEA7CD88" sourceRef="_E80652AB-2F39-4728-9DE6-C0DCB425CA8B" targetRef="_460D9ADB-67E9-4B66-8B7A-642CC8D55FF7"/>
     <bpmn2:sequenceFlow id="_CA140C5C-3D05-4836-B6A4-48449D55B439" sourceRef="_C46ACA96-6E6F-4D43-96D7-353E84EDE5A0" targetRef="_E80652AB-2F39-4728-9DE6-C0DCB425CA8B">
-      <bpmn2:documentation id="_ABTe72EnEe2A48SSUsxUFQ"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable desEjecOut = 1]]></bpmn2:documentation>
-      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_ABTe8GEnEe2A48SSUsxUFQ" language="http://www.java.com/java"><![CDATA[return KieFunctions.equalsTo(desEjecOut, "1");]]></bpmn2:conditionExpression>
+      <bpmn2:documentation id="_f2_-F3qiEe2iP5g0qgt5Ww"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable desEjecOut = 1]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_f2_-GHqiEe2iP5g0qgt5Ww" language="http://www.java.com/java"><![CDATA[return KieFunctions.equalsTo(desEjecOut, "1");]]></bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="_DEF63DC2-D3A5-44EC-8A68-991FC1A0B242" sourceRef="_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964" targetRef="_C46ACA96-6E6F-4D43-96D7-353E84EDE5A0">
       <bpmn2:extensionElements>
@@ -113,11 +114,11 @@
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="_003DD21F-1F46-4F6A-9482-5A027B3630C9" sourceRef="_EBD31C77-7357-48C6-8DA6-D170C6C161A3" targetRef="_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964">
-      <bpmn2:documentation id="_ABTe8WEnEe2A48SSUsxUFQ"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable conProOut = 1]]></bpmn2:documentation>
-      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_ABTe8mEnEe2A48SSUsxUFQ" language="http://www.java.com/java"><![CDATA[return KieFunctions.equalsTo(conProOut, "1");]]></bpmn2:conditionExpression>
+      <bpmn2:documentation id="_f2_-GXqiEe2iP5g0qgt5Ww"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable conProOut = 1]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_f2_-GnqiEe2iP5g0qgt5Ww" language="http://www.java.com/java"><![CDATA[return KieFunctions.equalsTo(conProOut, "1");]]></bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
     <bpmn2:exclusiveGateway id="_0D888791-A81C-443F-8B18-A8472DA42BBE" gatewayDirection="Converging">
-      <bpmn2:documentation id="_ABTe82EnEe2A48SSUsxUFQ"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable conProOut = 1]]></bpmn2:documentation>
+      <bpmn2:documentation id="_f2_-G3qiEe2iP5g0qgt5Ww"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable conProOut = 1]]></bpmn2:documentation>
       <bpmn2:incoming>_7EAC22AA-C06F-4ED9-B991-C2395FE8AA8A</bpmn2:incoming>
       <bpmn2:incoming>_72440C98-CCA2-482D-9CA8-19896A35ECB2</bpmn2:incoming>
       <bpmn2:outgoing>_F6BA2C5E-0C10-4993-BD7C-A46AB2083138</bpmn2:outgoing>
@@ -130,7 +131,7 @@
     </bpmn2:startEvent>
     <bpmn2:exclusiveGateway id="_C46ACA96-6E6F-4D43-96D7-353E84EDE5A0" name="Decision
 Ejecucion" gatewayDirection="Diverging">
-      <bpmn2:documentation id="_ABUF8GEnEe2A48SSUsxUFQ"><![CDATA[Compuerta de decisión con tres posibles caminos
+      <bpmn2:documentation id="_f2_-HHqiEe2iP5g0qgt5Ww"><![CDATA[Compuerta de decisión con tres posibles caminos
 Mapear la variable  desValOut de acuerdo a los siguientes valores:
 
 1 - Continuar Validacion
@@ -147,7 +148,7 @@ Ejecucion]]></drools:metaValue>
     </bpmn2:exclusiveGateway>
     <bpmn2:exclusiveGateway id="_460D9ADB-67E9-4B66-8B7A-642CC8D55FF7" name="Decisión
 Validación" gatewayDirection="Diverging">
-      <bpmn2:documentation id="_ABUF8WEnEe2A48SSUsxUFQ"><![CDATA[Compuerta de decisión con dos posibles caminos
+      <bpmn2:documentation id="_f2_-HXqiEe2iP5g0qgt5Ww"><![CDATA[Compuerta de decisión con dos posibles caminos
 Mapear de acuerdo a los siguientes valores:
 
 desValOut = 1 Finaliza el proceso de conservación
@@ -160,18 +161,22 @@ Validación]]></drools:metaValue>
         </drools:metaData>
       </bpmn2:extensionElements>
       <bpmn2:incoming>_BC0F3ED2-F4AC-40A1-B41A-9C1BCEA7CD88</bpmn2:incoming>
-      <bpmn2:outgoing>_FF0745DC-FF23-43BE-BCE4-B91282139EFA</bpmn2:outgoing>
       <bpmn2:outgoing>_7EAC22AA-C06F-4ED9-B991-C2395FE8AA8A</bpmn2:outgoing>
+      <bpmn2:outgoing>_FF0745DC-FF23-43BE-BCE4-B91282139EFA</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
     <bpmn2:callActivity id="_3A037E6E-56DB-4114-8EB8-0D4BED30FB17" drools:independent="false" drools:waitForCompletion="true" name="Asignación" calledElement="SistemaNacionalCatastral.sprocessAsignacion">
+      <bpmn2:documentation id="_f2_-HnqiEe2iP5g0qgt5Ww"><![CDATA[Bajo este subproceso de manera automatica, se validara cuales tramites estan pedientes por asignacion. Con esta validacion, el proceso asignara los tramites a los roles del sistema de acuerdo a los parametros establecidos.]]></bpmn2:documentation>
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[Asignación]]></drools:metaValue>
         </drools:metaData>
+        <drools:onExit-script scriptFormat="http://www.java.com/java">
+          <drools:script><![CDATA[kcontext.setVariable("ejecEstado","Asignado");]]></drools:script>
+        </drools:onExit-script>
       </bpmn2:extensionElements>
       <bpmn2:incoming>_7AA9B212-A10D-402F-9E6F-42ABCC56AE3D</bpmn2:incoming>
       <bpmn2:outgoing>_549605AD-6F2C-4235-BFCE-2EEF0EF39DF8</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_ABUF8mEnEe2A48SSUsxUFQ">
+      <bpmn2:ioSpecification id="_f2_-H3qiEe2iP5g0qgt5Ww">
         <bpmn2:dataInput id="_3A037E6E-56DB-4114-8EB8-0D4BED30FB17_predioOutInputX" drools:dtype="com.Predio" itemSubjectRef="__3A037E6E-56DB-4114-8EB8-0D4BED30FB17_predioOutInputXItem" name="predioOut"/>
         <bpmn2:dataInput id="_3A037E6E-56DB-4114-8EB8-0D4BED30FB17_predioPersonaOutInputX" drools:dtype="com.Predio_Persona" itemSubjectRef="__3A037E6E-56DB-4114-8EB8-0D4BED30FB17_predioPersonaOutInputXItem" name="predioPersonaOut"/>
         <bpmn2:dataInput id="_3A037E6E-56DB-4114-8EB8-0D4BED30FB17_solicitanteOutInputX" drools:dtype="com.Solicitante" itemSubjectRef="__3A037E6E-56DB-4114-8EB8-0D4BED30FB17_solicitanteOutInputXItem" name="solicitanteOut"/>
@@ -179,49 +184,49 @@ Validación]]></drools:metaValue>
         <bpmn2:dataInput id="_3A037E6E-56DB-4114-8EB8-0D4BED30FB17_tramiteOutInputX" drools:dtype="com.Tramite" itemSubjectRef="__3A037E6E-56DB-4114-8EB8-0D4BED30FB17_tramiteOutInputXItem" name="tramiteOut"/>
         <bpmn2:dataOutput id="_3A037E6E-56DB-4114-8EB8-0D4BED30FB17_conProOutOutputX" drools:dtype="Object" itemSubjectRef="__3A037E6E-56DB-4114-8EB8-0D4BED30FB17_conProOutOutputXItem" name="conProOut"/>
         <bpmn2:dataOutput id="_3A037E6E-56DB-4114-8EB8-0D4BED30FB17_A_ejecutorAsignadoOutputX" drools:dtype="String" itemSubjectRef="__3A037E6E-56DB-4114-8EB8-0D4BED30FB17_A_ejecutorAsignadoOutputXItem" name="A_ejecutorAsignado"/>
-        <bpmn2:inputSet id="_ABUF82EnEe2A48SSUsxUFQ">
+        <bpmn2:inputSet id="_f2_-IHqiEe2iP5g0qgt5Ww">
           <bpmn2:dataInputRefs>_3A037E6E-56DB-4114-8EB8-0D4BED30FB17_predioOutInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_3A037E6E-56DB-4114-8EB8-0D4BED30FB17_predioPersonaOutInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_3A037E6E-56DB-4114-8EB8-0D4BED30FB17_solicitanteOutInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_3A037E6E-56DB-4114-8EB8-0D4BED30FB17_solicitudOutInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_3A037E6E-56DB-4114-8EB8-0D4BED30FB17_tramiteOutInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
-        <bpmn2:outputSet id="_ABUF9GEnEe2A48SSUsxUFQ">
+        <bpmn2:outputSet id="_f2_-IXqiEe2iP5g0qgt5Ww">
           <bpmn2:dataOutputRefs>_3A037E6E-56DB-4114-8EB8-0D4BED30FB17_conProOutOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_3A037E6E-56DB-4114-8EB8-0D4BED30FB17_A_ejecutorAsignadoOutputX</bpmn2:dataOutputRefs>
         </bpmn2:outputSet>
       </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_ABUF9WEnEe2A48SSUsxUFQ">
+      <bpmn2:dataInputAssociation id="_f2_-InqiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>predioOut</bpmn2:sourceRef>
         <bpmn2:targetRef>_3A037E6E-56DB-4114-8EB8-0D4BED30FB17_predioOutInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_ABUF9mEnEe2A48SSUsxUFQ">
+      <bpmn2:dataInputAssociation id="_f2_-I3qiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>predioPersonaOut</bpmn2:sourceRef>
         <bpmn2:targetRef>_3A037E6E-56DB-4114-8EB8-0D4BED30FB17_predioPersonaOutInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_ABUF92EnEe2A48SSUsxUFQ">
+      <bpmn2:dataInputAssociation id="_f2_-JHqiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>solicitanteOut</bpmn2:sourceRef>
         <bpmn2:targetRef>_3A037E6E-56DB-4114-8EB8-0D4BED30FB17_solicitanteOutInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_ABUF-GEnEe2A48SSUsxUFQ">
+      <bpmn2:dataInputAssociation id="_f2_-JXqiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>solicitudOut</bpmn2:sourceRef>
         <bpmn2:targetRef>_3A037E6E-56DB-4114-8EB8-0D4BED30FB17_solicitudOutInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_ABUF-WEnEe2A48SSUsxUFQ">
+      <bpmn2:dataInputAssociation id="_f2_-JnqiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>tramiteOut</bpmn2:sourceRef>
         <bpmn2:targetRef>_3A037E6E-56DB-4114-8EB8-0D4BED30FB17_tramiteOutInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataOutputAssociation id="_ABUF-mEnEe2A48SSUsxUFQ">
+      <bpmn2:dataOutputAssociation id="_f2_-J3qiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>_3A037E6E-56DB-4114-8EB8-0D4BED30FB17_conProOutOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>conProOut</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_ABUF-2EnEe2A48SSUsxUFQ">
+      <bpmn2:dataOutputAssociation id="_f2_-KHqiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>_3A037E6E-56DB-4114-8EB8-0D4BED30FB17_A_ejecutorAsignadoOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>P_EjecutorAsignado</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
     </bpmn2:callActivity>
     <bpmn2:callActivity id="_23341BB2-381E-47DC-B17B-6EF02E4BB293" drools:independent="false" drools:waitForCompletion="true" name="Radicacion" calledElement="SistemaNacionalCatastral.Radicacion">
-      <bpmn2:documentation id="_ABUF_GEnEe2A48SSUsxUFQ"><![CDATA[Este subproceso inicia la gestión catastral a nivel de conservación.]]></bpmn2:documentation>
+      <bpmn2:documentation id="_f2_-KXqiEe2iP5g0qgt5Ww"><![CDATA[Por medio de este subproceso, se inicia la radicación de las solicitudes, que pueden contener tramites asociados para realizar la gestion catastral]]></bpmn2:documentation>
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[Radicacion]]></drools:metaValue>
@@ -229,51 +234,51 @@ Validación]]></drools:metaValue>
       </bpmn2:extensionElements>
       <bpmn2:incoming>_C2D83ADD-FDBA-4DBC-94CF-EA75A63876C6</bpmn2:incoming>
       <bpmn2:outgoing>_7B123E02-9FD0-4313-AAD7-D3386139B66C</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_ABUF_WEnEe2A48SSUsxUFQ">
+      <bpmn2:ioSpecification id="_f2_-KnqiEe2iP5g0qgt5Ww">
         <bpmn2:dataInput id="_23341BB2-381E-47DC-B17B-6EF02E4BB293_predioOutInputX" drools:dtype="com.Predio" itemSubjectRef="__23341BB2-381E-47DC-B17B-6EF02E4BB293_predioOutInputXItem" name="predioOut"/>
         <bpmn2:dataInput id="_23341BB2-381E-47DC-B17B-6EF02E4BB293_predioPersonaOutInputX" drools:dtype="com.Predio_Persona" itemSubjectRef="__23341BB2-381E-47DC-B17B-6EF02E4BB293_predioPersonaOutInputXItem" name="predioPersonaOut"/>
         <bpmn2:dataInput id="_23341BB2-381E-47DC-B17B-6EF02E4BB293_solicitanteOutInputX" drools:dtype="com.Solicitante" itemSubjectRef="__23341BB2-381E-47DC-B17B-6EF02E4BB293_solicitanteOutInputXItem" name="solicitanteOut"/>
         <bpmn2:dataInput id="_23341BB2-381E-47DC-B17B-6EF02E4BB293_solicitudOutInputX" drools:dtype="com.Solicitud" itemSubjectRef="__23341BB2-381E-47DC-B17B-6EF02E4BB293_solicitudOutInputXItem" name="solicitudOut"/>
         <bpmn2:dataInput id="_23341BB2-381E-47DC-B17B-6EF02E4BB293_tramiteOutInputX" drools:dtype="com.Tramite" itemSubjectRef="__23341BB2-381E-47DC-B17B-6EF02E4BB293_tramiteOutInputXItem" name="tramiteOut"/>
         <bpmn2:dataOutput id="_23341BB2-381E-47DC-B17B-6EF02E4BB293_conProOutOutputX" drools:dtype="Integer" itemSubjectRef="__23341BB2-381E-47DC-B17B-6EF02E4BB293_conProOutOutputXItem" name="conProOut"/>
-        <bpmn2:inputSet id="_ABUF_mEnEe2A48SSUsxUFQ">
+        <bpmn2:inputSet id="_f2_-K3qiEe2iP5g0qgt5Ww">
           <bpmn2:dataInputRefs>_23341BB2-381E-47DC-B17B-6EF02E4BB293_predioOutInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_23341BB2-381E-47DC-B17B-6EF02E4BB293_predioPersonaOutInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_23341BB2-381E-47DC-B17B-6EF02E4BB293_solicitanteOutInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_23341BB2-381E-47DC-B17B-6EF02E4BB293_solicitudOutInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_23341BB2-381E-47DC-B17B-6EF02E4BB293_tramiteOutInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
-        <bpmn2:outputSet id="_ABUF_2EnEe2A48SSUsxUFQ">
+        <bpmn2:outputSet id="_f2_-LHqiEe2iP5g0qgt5Ww">
           <bpmn2:dataOutputRefs>_23341BB2-381E-47DC-B17B-6EF02E4BB293_conProOutOutputX</bpmn2:dataOutputRefs>
         </bpmn2:outputSet>
       </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_ABUGAGEnEe2A48SSUsxUFQ">
+      <bpmn2:dataInputAssociation id="_f2_-LXqiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>predioOut</bpmn2:sourceRef>
         <bpmn2:targetRef>_23341BB2-381E-47DC-B17B-6EF02E4BB293_predioOutInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_ABUGAWEnEe2A48SSUsxUFQ">
+      <bpmn2:dataInputAssociation id="_f2_-LnqiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>predioPersonaOut</bpmn2:sourceRef>
         <bpmn2:targetRef>_23341BB2-381E-47DC-B17B-6EF02E4BB293_predioPersonaOutInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_ABUGAmEnEe2A48SSUsxUFQ">
+      <bpmn2:dataInputAssociation id="_f2_-L3qiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>solicitanteOut</bpmn2:sourceRef>
         <bpmn2:targetRef>_23341BB2-381E-47DC-B17B-6EF02E4BB293_solicitanteOutInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_ABUGA2EnEe2A48SSUsxUFQ">
+      <bpmn2:dataInputAssociation id="_f2_-MHqiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>solicitudOut</bpmn2:sourceRef>
         <bpmn2:targetRef>_23341BB2-381E-47DC-B17B-6EF02E4BB293_solicitudOutInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_ABUGBGEnEe2A48SSUsxUFQ">
+      <bpmn2:dataInputAssociation id="_f2_-MXqiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>tramiteOut</bpmn2:sourceRef>
         <bpmn2:targetRef>_23341BB2-381E-47DC-B17B-6EF02E4BB293_tramiteOutInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataOutputAssociation id="_ABUGBWEnEe2A48SSUsxUFQ">
+      <bpmn2:dataOutputAssociation id="_f2_-MnqiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>_23341BB2-381E-47DC-B17B-6EF02E4BB293_conProOutOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>conProOut</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
     </bpmn2:callActivity>
     <bpmn2:exclusiveGateway id="_0EDC7FD4-E810-4076-B040-C064E7D399CC" gatewayDirection="Diverging">
-      <bpmn2:documentation id="_ABUGBmEnEe2A48SSUsxUFQ"><![CDATA[Compuerta de decisión con dos posibles caminos
+      <bpmn2:documentation id="_f2_-M3qiEe2iP5g0qgt5Ww"><![CDATA[Compuerta de decisión con dos posibles caminos
 Mapear de acuerdo a los siguientes valores:
 
 desValOut = 2 cuando viene devuelto desde validación hacia ejecución
@@ -284,18 +289,19 @@ desValOut = 2 cuando viene devuelto desde validación hacia ejecución
       <bpmn2:outgoing>_1CCEABFC-B9A7-4224-A149-172DF05BC842</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
     <bpmn2:exclusiveGateway id="_1C050072-928A-4101-BC96-56BFFD942EB3" gatewayDirection="Converging">
-      <bpmn2:documentation id="_ABUGB2EnEe2A48SSUsxUFQ"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable conProOut = 1]]></bpmn2:documentation>
-      <bpmn2:incoming>_7B123E02-9FD0-4313-AAD7-D3386139B66C</bpmn2:incoming>
+      <bpmn2:documentation id="_f2_-NHqiEe2iP5g0qgt5Ww"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable conProOut = 1]]></bpmn2:documentation>
       <bpmn2:incoming>_1CCEABFC-B9A7-4224-A149-172DF05BC842</bpmn2:incoming>
+      <bpmn2:incoming>_7B123E02-9FD0-4313-AAD7-D3386139B66C</bpmn2:incoming>
       <bpmn2:outgoing>_7AA9B212-A10D-402F-9E6F-42ABCC56AE3D</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
     <bpmn2:exclusiveGateway id="_EBD31C77-7357-48C6-8DA6-D170C6C161A3" gatewayDirection="Converging">
-      <bpmn2:documentation id="_ABUGCGEnEe2A48SSUsxUFQ"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable conProOut = 1]]></bpmn2:documentation>
-      <bpmn2:incoming>_4A3CC993-FA13-460D-96F9-DAB16F1DA29D</bpmn2:incoming>
+      <bpmn2:documentation id="_f2_-NXqiEe2iP5g0qgt5Ww"><![CDATA[Conector de las decisiones, se debe avanzar instanciando la variable conProOut = 1]]></bpmn2:documentation>
       <bpmn2:incoming>_549605AD-6F2C-4235-BFCE-2EEF0EF39DF8</bpmn2:incoming>
+      <bpmn2:incoming>_4A3CC993-FA13-460D-96F9-DAB16F1DA29D</bpmn2:incoming>
       <bpmn2:outgoing>_003DD21F-1F46-4F6A-9482-5A027B3630C9</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
     <bpmn2:callActivity id="_E80652AB-2F39-4728-9DE6-C0DCB425CA8B" drools:independent="false" drools:waitForCompletion="true" name="Validación" calledElement="SistemaNacionalCatastral.processValidacion">
+      <bpmn2:documentation id="_f2_-NnqiEe2iP5g0qgt5Ww"><![CDATA[En este subproceso, se podra hacer revision de la proyeccion de la resolucion producto de la ejecucion del tramite por los diferentes roles definidos por el negocio ]]></bpmn2:documentation>
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[Validación]]></drools:metaValue>
@@ -306,7 +312,7 @@ desValOut = 2 cuando viene devuelto desde validación hacia ejecución
       </bpmn2:extensionElements>
       <bpmn2:incoming>_CA140C5C-3D05-4836-B6A4-48449D55B439</bpmn2:incoming>
       <bpmn2:outgoing>_BC0F3ED2-F4AC-40A1-B41A-9C1BCEA7CD88</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_ABUGCWEnEe2A48SSUsxUFQ">
+      <bpmn2:ioSpecification id="_f2_-N3qiEe2iP5g0qgt5Ww">
         <bpmn2:dataInput id="_E80652AB-2F39-4728-9DE6-C0DCB425CA8B_predioOutInputX" drools:dtype="com.Predio" itemSubjectRef="__E80652AB-2F39-4728-9DE6-C0DCB425CA8B_predioOutInputXItem" name="predioOut"/>
         <bpmn2:dataInput id="_E80652AB-2F39-4728-9DE6-C0DCB425CA8B_tramiteOutInputX" drools:dtype="com.Tramite" itemSubjectRef="__E80652AB-2F39-4728-9DE6-C0DCB425CA8B_tramiteOutInputXItem" name="tramiteOut"/>
         <bpmn2:dataInput id="_E80652AB-2F39-4728-9DE6-C0DCB425CA8B_predioPersonaOutInputX" drools:dtype="com.Predio_Persona" itemSubjectRef="__E80652AB-2F39-4728-9DE6-C0DCB425CA8B_predioPersonaOutInputXItem" name="predioPersonaOut"/>
@@ -314,48 +320,49 @@ desValOut = 2 cuando viene devuelto desde validación hacia ejecución
         <bpmn2:dataInput id="_E80652AB-2F39-4728-9DE6-C0DCB425CA8B_solicitudOutInputX" drools:dtype="com.Solicitud" itemSubjectRef="__E80652AB-2F39-4728-9DE6-C0DCB425CA8B_solicitudOutInputXItem" name="solicitudOut"/>
         <bpmn2:dataOutput id="_E80652AB-2F39-4728-9DE6-C0DCB425CA8B_desValOutOutputX" drools:dtype="Integer" itemSubjectRef="__E80652AB-2F39-4728-9DE6-C0DCB425CA8B_desValOutOutputXItem" name="desValOut"/>
         <bpmn2:dataOutput id="_E80652AB-2F39-4728-9DE6-C0DCB425CA8B_ejecEstadoOutputX" drools:dtype="String" itemSubjectRef="__E80652AB-2F39-4728-9DE6-C0DCB425CA8B_ejecEstadoOutputXItem" name="ejecEstado"/>
-        <bpmn2:inputSet id="_ABUGCmEnEe2A48SSUsxUFQ">
+        <bpmn2:inputSet id="_f2_-OHqiEe2iP5g0qgt5Ww">
           <bpmn2:dataInputRefs>_E80652AB-2F39-4728-9DE6-C0DCB425CA8B_predioOutInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_E80652AB-2F39-4728-9DE6-C0DCB425CA8B_tramiteOutInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_E80652AB-2F39-4728-9DE6-C0DCB425CA8B_predioPersonaOutInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_E80652AB-2F39-4728-9DE6-C0DCB425CA8B_solicitanteOutInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_E80652AB-2F39-4728-9DE6-C0DCB425CA8B_solicitudOutInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
-        <bpmn2:outputSet id="_ABUGC2EnEe2A48SSUsxUFQ">
+        <bpmn2:outputSet id="_f2_-OXqiEe2iP5g0qgt5Ww">
           <bpmn2:dataOutputRefs>_E80652AB-2F39-4728-9DE6-C0DCB425CA8B_desValOutOutputX</bpmn2:dataOutputRefs>
           <bpmn2:dataOutputRefs>_E80652AB-2F39-4728-9DE6-C0DCB425CA8B_ejecEstadoOutputX</bpmn2:dataOutputRefs>
         </bpmn2:outputSet>
       </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_ABUGDGEnEe2A48SSUsxUFQ">
+      <bpmn2:dataInputAssociation id="_f2_-OnqiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>predioOut</bpmn2:sourceRef>
         <bpmn2:targetRef>_E80652AB-2F39-4728-9DE6-C0DCB425CA8B_predioOutInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_ABUGDWEnEe2A48SSUsxUFQ">
+      <bpmn2:dataInputAssociation id="_f2_-O3qiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>tramiteOut</bpmn2:sourceRef>
         <bpmn2:targetRef>_E80652AB-2F39-4728-9DE6-C0DCB425CA8B_tramiteOutInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_ABUGDmEnEe2A48SSUsxUFQ">
+      <bpmn2:dataInputAssociation id="_f2_-PHqiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>predioPersonaOut</bpmn2:sourceRef>
         <bpmn2:targetRef>_E80652AB-2F39-4728-9DE6-C0DCB425CA8B_predioPersonaOutInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_ABUGD2EnEe2A48SSUsxUFQ">
+      <bpmn2:dataInputAssociation id="_f2_-PXqiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>solicitanteOut</bpmn2:sourceRef>
         <bpmn2:targetRef>_E80652AB-2F39-4728-9DE6-C0DCB425CA8B_solicitanteOutInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_ABUGEGEnEe2A48SSUsxUFQ">
+      <bpmn2:dataInputAssociation id="_f2_-PnqiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>solicitudOut</bpmn2:sourceRef>
         <bpmn2:targetRef>_E80652AB-2F39-4728-9DE6-C0DCB425CA8B_solicitudOutInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataOutputAssociation id="_ABUGEWEnEe2A48SSUsxUFQ">
+      <bpmn2:dataOutputAssociation id="_f2_-P3qiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>_E80652AB-2F39-4728-9DE6-C0DCB425CA8B_desValOutOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>desValOut</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:dataOutputAssociation id="_ABUGEmEnEe2A48SSUsxUFQ">
+      <bpmn2:dataOutputAssociation id="_f2_-QHqiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>_E80652AB-2F39-4728-9DE6-C0DCB425CA8B_ejecEstadoOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>ejecEstado</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
     </bpmn2:callActivity>
     <bpmn2:callActivity id="_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964" drools:independent="false" drools:waitForCompletion="true" name="Ejecución" calledElement="SistemaNacionalCatastral.processEjecucion">
+      <bpmn2:documentation id="_f2_-QXqiEe2iP5g0qgt5Ww"><![CDATA[Bajo este subproceso, se espera realizar todas las modificaciones alfanumericas de las mutaciones de primera, permitiendo generar una proyección de la resolución y consultando le historico del predio objeto al tramite]]></bpmn2:documentation>
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[Ejecución]]></drools:metaValue>
@@ -363,7 +370,7 @@ desValOut = 2 cuando viene devuelto desde validación hacia ejecución
       </bpmn2:extensionElements>
       <bpmn2:incoming>_003DD21F-1F46-4F6A-9482-5A027B3630C9</bpmn2:incoming>
       <bpmn2:outgoing>_DEF63DC2-D3A5-44EC-8A68-991FC1A0B242</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_ABUGE2EnEe2A48SSUsxUFQ">
+      <bpmn2:ioSpecification id="_f2_-QnqiEe2iP5g0qgt5Ww">
         <bpmn2:dataInput id="_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_predioOutInputX" drools:dtype="com.Predio" itemSubjectRef="__27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_predioOutInputXItem" name="predioOut"/>
         <bpmn2:dataInput id="_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_tramiteOutInputX" drools:dtype="com.Tramite" itemSubjectRef="__27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_tramiteOutInputXItem" name="tramiteOut"/>
         <bpmn2:dataInput id="_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_desValprossAutInputX" drools:dtype="Integer" itemSubjectRef="__27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_desValprossAutInputXItem" name="desValprossAut"/>
@@ -373,7 +380,7 @@ desValOut = 2 cuando viene devuelto desde validación hacia ejecución
         <bpmn2:dataInput id="_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_ejecEstadoInputX" drools:dtype="String" itemSubjectRef="__27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_ejecEstadoInputXItem" name="ejecEstado"/>
         <bpmn2:dataInput id="_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_E_ejecutorAsignadoInputX" drools:dtype="String" itemSubjectRef="__27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_E_ejecutorAsignadoInputXItem" name="E_ejecutorAsignado"/>
         <bpmn2:dataOutput id="_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_desEjecOutOutputX" drools:dtype="Object" itemSubjectRef="__27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_desEjecOutOutputXItem" name="desEjecOut"/>
-        <bpmn2:inputSet id="_ABUGFGEnEe2A48SSUsxUFQ">
+        <bpmn2:inputSet id="_f2_-Q3qiEe2iP5g0qgt5Ww">
           <bpmn2:dataInputRefs>_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_predioOutInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_tramiteOutInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_desValprossAutInputX</bpmn2:dataInputRefs>
@@ -383,50 +390,50 @@ desValOut = 2 cuando viene devuelto desde validación hacia ejecución
           <bpmn2:dataInputRefs>_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_ejecEstadoInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_E_ejecutorAsignadoInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
-        <bpmn2:outputSet id="_ABUGFWEnEe2A48SSUsxUFQ">
+        <bpmn2:outputSet id="_f2_-RHqiEe2iP5g0qgt5Ww">
           <bpmn2:dataOutputRefs>_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_desEjecOutOutputX</bpmn2:dataOutputRefs>
         </bpmn2:outputSet>
       </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_ABUGFmEnEe2A48SSUsxUFQ">
+      <bpmn2:dataInputAssociation id="_f2_-RXqiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>predioOut</bpmn2:sourceRef>
         <bpmn2:targetRef>_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_predioOutInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_ABUGF2EnEe2A48SSUsxUFQ">
-        <bpmn2:sourceRef>IDTramiteOut</bpmn2:sourceRef>
+      <bpmn2:dataInputAssociation id="_f2_-RnqiEe2iP5g0qgt5Ww">
+        <bpmn2:sourceRef>tramiteOut</bpmn2:sourceRef>
         <bpmn2:targetRef>_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_tramiteOutInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_ABUGGGEnEe2A48SSUsxUFQ">
+      <bpmn2:dataInputAssociation id="_f2_-R3qiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>desValprossAut</bpmn2:sourceRef>
         <bpmn2:targetRef>_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_desValprossAutInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_ABUGGWEnEe2A48SSUsxUFQ">
+      <bpmn2:dataInputAssociation id="_f2_-SHqiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>predioPersonaOut</bpmn2:sourceRef>
         <bpmn2:targetRef>_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_predioPersonaOutInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_ABUGGmEnEe2A48SSUsxUFQ">
+      <bpmn2:dataInputAssociation id="_f2_-SXqiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>solicitanteOut</bpmn2:sourceRef>
         <bpmn2:targetRef>_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_solicitanteOutInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_ABUGG2EnEe2A48SSUsxUFQ">
+      <bpmn2:dataInputAssociation id="_f2_-SnqiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>solicitudOut</bpmn2:sourceRef>
         <bpmn2:targetRef>_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_solicitudOutInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_ABUGHGEnEe2A48SSUsxUFQ">
+      <bpmn2:dataInputAssociation id="_f2_-S3qiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>ejecEstado</bpmn2:sourceRef>
         <bpmn2:targetRef>_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_ejecEstadoInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_ABUGHWEnEe2A48SSUsxUFQ">
+      <bpmn2:dataInputAssociation id="_f2_-THqiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>P_EjecutorAsignado</bpmn2:sourceRef>
         <bpmn2:targetRef>_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_E_ejecutorAsignadoInputX</bpmn2:targetRef>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataOutputAssociation id="_ABUGHmEnEe2A48SSUsxUFQ">
+      <bpmn2:dataOutputAssociation id="_f2_-TXqiEe2iP5g0qgt5Ww">
         <bpmn2:sourceRef>_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964_desEjecOutOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>desEjecOut</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
     </bpmn2:callActivity>
   </bpmn2:process>
-  <bpmndi:BPMNDiagram id="_ABUtAGEnEe2A48SSUsxUFQ">
-    <bpmndi:BPMNPlane id="_ABUtAWEnEe2A48SSUsxUFQ" bpmnElement="SistemaNacionalCatastral.processConservacion">
+  <bpmndi:BPMNDiagram id="_f2_-TnqiEe2iP5g0qgt5Ww">
+    <bpmndi:BPMNPlane id="_f2_-T3qiEe2iP5g0qgt5Ww" bpmnElement="SistemaNacionalCatastral.processCont">
       <bpmndi:BPMNShape id="shape__27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964" bpmnElement="_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964">
         <dc:Bounds height="101.0" width="153.0" x="1066.0" y="112.0"/>
       </bpmndi:BPMNShape>
@@ -479,22 +486,22 @@ desValOut = 2 cuando viene devuelto desde validación hacia ejecución
         <di:waypoint xsi:type="dc:Point" x="1489.5" y="162.5"/>
         <di:waypoint xsi:type="dc:Point" x="1645.0" y="163.0"/>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="edge_shape__0EDC7FD4-E810-4076-B040-C064E7D399CC_to_shape__EBD31C77-7357-48C6-8DA6-D170C6C161A3" bpmnElement="_4A3CC993-FA13-460D-96F9-DAB16F1DA29D">
-        <di:waypoint xsi:type="dc:Point" x="985.0" y="42.003704"/>
-        <di:waypoint xsi:type="dc:Point" x="985.0" y="135.00371"/>
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="edge_shape__3A037E6E-56DB-4114-8EB8-0D4BED30FB17_to_shape__EBD31C77-7357-48C6-8DA6-D170C6C161A3" bpmnElement="_549605AD-6F2C-4235-BFCE-2EEF0EF39DF8">
         <di:waypoint xsi:type="dc:Point" x="828.0" y="162.5"/>
         <di:waypoint xsi:type="dc:Point" x="957.0" y="163.00371"/>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="edge_shape__23341BB2-381E-47DC-B17B-6EF02E4BB293_to_shape__1C050072-928A-4101-BC96-56BFFD942EB3" bpmnElement="_7B123E02-9FD0-4313-AAD7-D3386139B66C">
-        <di:waypoint xsi:type="dc:Point" x="503.5" y="162.5"/>
-        <di:waypoint xsi:type="dc:Point" x="626.0" y="163.0"/>
+      <bpmndi:BPMNEdge id="edge_shape__0EDC7FD4-E810-4076-B040-C064E7D399CC_to_shape__EBD31C77-7357-48C6-8DA6-D170C6C161A3" bpmnElement="_4A3CC993-FA13-460D-96F9-DAB16F1DA29D">
+        <di:waypoint xsi:type="dc:Point" x="985.0" y="42.003704"/>
+        <di:waypoint xsi:type="dc:Point" x="985.0" y="135.00371"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="edge_shape__0EDC7FD4-E810-4076-B040-C064E7D399CC_to_shape__1C050072-928A-4101-BC96-56BFFD942EB3" bpmnElement="_1CCEABFC-B9A7-4224-A149-172DF05BC842">
         <di:waypoint xsi:type="dc:Point" x="985.0" y="42.003704"/>
         <di:waypoint xsi:type="dc:Point" x="654.0" y="42.0037"/>
         <di:waypoint xsi:type="dc:Point" x="654.0" y="135.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape__23341BB2-381E-47DC-B17B-6EF02E4BB293_to_shape__1C050072-928A-4101-BC96-56BFFD942EB3" bpmnElement="_7B123E02-9FD0-4313-AAD7-D3386139B66C">
+        <di:waypoint xsi:type="dc:Point" x="503.5" y="162.5"/>
+        <di:waypoint xsi:type="dc:Point" x="626.0" y="163.0"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="edge_shape__1C050072-928A-4101-BC96-56BFFD942EB3_to_shape__3A037E6E-56DB-4114-8EB8-0D4BED30FB17" bpmnElement="_7AA9B212-A10D-402F-9E6F-42ABCC56AE3D">
         <di:waypoint xsi:type="dc:Point" x="654.0" y="163.0"/>
@@ -508,14 +515,14 @@ desValOut = 2 cuando viene devuelto desde validación hacia ejecución
         <di:waypoint xsi:type="dc:Point" x="305.0" y="163.0"/>
         <di:waypoint xsi:type="dc:Point" x="427.0" y="162.5"/>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="edge_shape__460D9ADB-67E9-4B66-8B7A-642CC8D55FF7_to_shape__55BBBCD4-EDDD-4F11-8D08-0C6400CB6920" bpmnElement="_FF0745DC-FF23-43BE-BCE4-B91282139EFA">
-        <di:waypoint xsi:type="dc:Point" x="1701.0" y="163.0"/>
-        <di:waypoint xsi:type="dc:Point" x="1770.0" y="163.0"/>
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="edge_shape__460D9ADB-67E9-4B66-8B7A-642CC8D55FF7_to_shape__0D888791-A81C-443F-8B18-A8472DA42BBE" bpmnElement="_7EAC22AA-C06F-4ED9-B991-C2395FE8AA8A">
         <di:waypoint xsi:type="dc:Point" x="1673.0" y="163.0"/>
         <di:waypoint xsi:type="dc:Point" x="1673.0" y="42.0"/>
         <di:waypoint xsi:type="dc:Point" x="1345.0" y="42.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape__460D9ADB-67E9-4B66-8B7A-642CC8D55FF7_to_shape__55BBBCD4-EDDD-4F11-8D08-0C6400CB6920" bpmnElement="_FF0745DC-FF23-43BE-BCE4-B91282139EFA">
+        <di:waypoint xsi:type="dc:Point" x="1701.0" y="163.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1770.0" y="163.0"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="edge_shape__C46ACA96-6E6F-4D43-96D7-353E84EDE5A0_to_shape__0D888791-A81C-443F-8B18-A8472DA42BBE" bpmnElement="_72440C98-CCA2-482D-9CA8-19896A35ECB2">
         <di:waypoint xsi:type="dc:Point" x="1316.0" y="135.0"/>
@@ -523,12 +530,12 @@ desValOut = 2 cuando viene devuelto desde validación hacia ejecución
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
-  <bpmn2:relationship id="_ABUtAmEnEe2A48SSUsxUFQ" type="BPSimData">
+  <bpmn2:relationship id="_f2_-UHqiEe2iP5g0qgt5Ww" type="BPSimData">
     <bpmn2:extensionElements>
       <bpsim:BPSimData>
         <bpsim:Scenario xsi:type="bpsim:Scenario" id="default" name="Simulationscenario">
           <bpsim:ScenarioParameters xsi:type="bpsim:ScenarioParameters"/>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964" id="_ABUtA2EnEe2A48SSUsxUFQ">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_27C43AAB-E09B-4AEB-BF8C-5CB65A4F8964" id="_f2_-UXqiEe2iP5g0qgt5Ww">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -548,7 +555,7 @@ desValOut = 2 cuando viene devuelto desde validación hacia ejecución
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_E80652AB-2F39-4728-9DE6-C0DCB425CA8B" id="_ABUtBGEnEe2A48SSUsxUFQ">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_E80652AB-2F39-4728-9DE6-C0DCB425CA8B" id="_f2_-UnqiEe2iP5g0qgt5Ww">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -568,7 +575,7 @@ desValOut = 2 cuando viene devuelto desde validación hacia ejecución
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_23341BB2-381E-47DC-B17B-6EF02E4BB293" id="_ABUtBWEnEe2A48SSUsxUFQ">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_23341BB2-381E-47DC-B17B-6EF02E4BB293" id="_f3AlIHqiEe2iP5g0qgt5Ww">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -588,7 +595,7 @@ desValOut = 2 cuando viene devuelto desde validación hacia ejecución
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_3A037E6E-56DB-4114-8EB8-0D4BED30FB17" id="_ABUtBmEnEe2A48SSUsxUFQ">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_3A037E6E-56DB-4114-8EB8-0D4BED30FB17" id="_f3AlIXqiEe2iP5g0qgt5Ww">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -608,7 +615,7 @@ desValOut = 2 cuando viene devuelto desde validación hacia ejecución
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_46CE77CC-B374-4BA6-9C0D-D702737A81AE" id="_ABUtB2EnEe2A48SSUsxUFQ">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_46CE77CC-B374-4BA6-9C0D-D702737A81AE" id="_f3AlInqiEe2iP5g0qgt5Ww">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -618,7 +625,7 @@ desValOut = 2 cuando viene devuelto desde validación hacia ejecución
         </bpsim:Scenario>
       </bpsim:BPSimData>
     </bpmn2:extensionElements>
-    <bpmn2:source>_ABTe4GEnEe2A48SSUsxUFQ</bpmn2:source>
-    <bpmn2:target>_ABTe4GEnEe2A48SSUsxUFQ</bpmn2:target>
+    <bpmn2:source>_f2_XAHqiEe2iP5g0qgt5Ww</bpmn2:source>
+    <bpmn2:target>_f2_XAHqiEe2iP5g0qgt5Ww</bpmn2:target>
   </bpmn2:relationship>
 </bpmn2:definitions>
